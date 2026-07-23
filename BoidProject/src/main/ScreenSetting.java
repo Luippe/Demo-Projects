@@ -1,0 +1,274 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.JPanel;
+
+import entity.Enemy;
+import entity.Entity;
+
+
+public class ScreenSetting extends JPanel implements Runnable{
+
+    // Screen Settings
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    final int screenWidth = (int) screenSize.getWidth();
+    final int screenHeight = (int) screenSize.getHeight();
+    final int widthMargin = 120;
+    final int heightMargin = 120;
+    final Color backgroundColor = new Color(0, 171, 240);
+    int dxCamera = 0;
+    int dyCamera = 0;
+    int cameraSpeed = 3;
+    KeyHandler keyH = new KeyHandler();
+    CursorHandler cursorH = new CursorHandler();
+    
+    
+    ArrayList<Entity> entityList = new ArrayList<>();
+    ArrayList<Obstacle> obstacleList = new ArrayList<>();
+    ArrayList<Entity> entityListCopy = new ArrayList<>();
+    Spawn spawn = new Spawn(keyH, cursorH, entityList, obstacleList);
+    Random random = new Random();
+
+    // FPS. Set fps
+    int FPS = 60;
+
+    // Create Thread for the screen
+    Thread mainThread;
+
+    public ScreenSetting() {
+        // this.setPreferredSize(new Dimension(800,800));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        this.setBackground(backgroundColor);
+        this.setDoubleBuffered(true);
+        this.addKeyListener(keyH);
+        this.addMouseListener(cursorH);
+        this.setFocusable(true);
+    }
+
+    // Call this method to start the thread
+    public void initialize() {
+        mainThread = new Thread(this);
+        mainThread.start();
+    }
+
+    @Override
+    public void run() {
+
+        double drawInterval = 1000000000/FPS;
+        int timer = 0;
+        double nextDrawTime = System.nanoTime() + drawInterval;
+
+        // While this thread exists, continue the while loop
+        while(mainThread != null) {
+            
+            update();
+            repaint();
+
+            try {
+                double remainingTime = nextDrawTime - System.nanoTime();
+                remainingTime = remainingTime/1000000;  // Convert to millisec since sleep only takes millisec
+
+                timer++;
+                if (timer > 3) {
+                    // System.out.printf("Remaining Time: %.5s\n", remainingTime);
+                    // System.out.printf("Memory Usage: %s\n", Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+                    timer = 0;
+                }
+                
+                // Run immediately if the program takes more than 1/60 of a sec to run. Rarely happens
+                if (remainingTime < 0) {
+                    remainingTime = 0;
+                }
+
+                Thread.sleep((long) remainingTime);
+                nextDrawTime += drawInterval;
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Update stuff
+    public void update() {
+
+        // if(cursorH.isLeftClicked == true) {
+        //     cursorH.isLeftClicked = false;
+        //     Enemy enemy = new Enemy(cursorH.cursorX, cursorH.cursorY);
+        //     entityList.add(enemy);
+
+        // } else if (cursorH.isRightClicked == true) {
+        //     Obstacle obstacle = new Obstacle(cursorH.cursorX, cursorH.cursorY);
+        //     obstacleList.add(obstacle);
+        //     cursorH.isRightClicked = false;
+        // }
+        
+        
+        spawn.update();
+        entityListCopy = entityList;
+        updateKeys();
+
+        for(Entity boid: entityList) {
+
+            double closedx = 0;
+            double closedy = 0;
+            double xvelAvg = 0;
+            double yvelAvg = 0;
+            double xposAvg = 0;
+            double yposAvg = 0;
+            double neighboringBoids = 0;
+
+            for(Entity otherBoid: entityListCopy) {
+                if (boid != otherBoid && boid.type == otherBoid.type) {
+
+                    double distance = Math.hypot(boid.x-otherBoid.x, boid.y-otherBoid.y);
+                    if (distance <= boid.protectRange) {  // What boids are in the protectRange
+
+                        closedx += boid.x - otherBoid.x;
+                        closedy += boid.y - otherBoid.y;
+
+                    }
+                    else if (distance <= boid.visibleRange) {    // What boids are in the visibleRange? Get their average velocity and position
+
+                        xvelAvg += otherBoid.vx;
+                        yvelAvg += otherBoid.vy;
+                        xposAvg += otherBoid.x;
+                        yposAvg += otherBoid.y;
+
+                        neighboringBoids += 1;
+                    }
+                }
+            }
+            if (neighboringBoids > 0) {  // Move boid towards center of mass of other boids
+
+                xvelAvg = xvelAvg/neighboringBoids;
+                yvelAvg = yvelAvg/neighboringBoids;
+                xposAvg = xposAvg/neighboringBoids;
+                yposAvg = yposAvg/neighboringBoids;
+                boid.vx += (xvelAvg - boid.vx)*boid.matchingFactor;
+                boid.vy += (yvelAvg - boid.vy)*boid.matchingFactor;
+                boid.vx += (xposAvg - boid.x)*boid.centeringFactor;
+                boid.vy += (yposAvg - boid.y)*boid.centeringFactor;
+
+            }
+
+            boid.vx = boid.vx + closedx*boid.avoidFactor;
+            boid.vy = boid.vy + closedy*boid.avoidFactor;
+            
+            updateCollision(boid);
+            // If boid goes off screen, turn it around
+            // if (boid.x < widthMargin) {
+
+            //     boid.vx = boid.vx + (boid.turnFactor*widthMargin/boid.x - 1);
+
+            // }
+            // else if (boid.x > screenWidth - widthMargin) {
+
+            //     boid.vx = boid.vx - (boid.turnFactor*widthMargin/(screenWidth - boid.x) - 1);
+
+            // }
+            // if (boid.y < heightMargin) {
+
+            //     boid.vy = boid.vy + (boid.turnFactor*heightMargin/boid.y - 1);
+
+            // }
+            // else if (boid.y > screenHeight - heightMargin) {
+
+            //     boid.vy = boid.vy - (boid.turnFactor*heightMargin/(screenHeight - boid.y) - 1);
+
+            // }
+
+            // Put speed limit on how fast boids can travel
+            double speed = Math.hypot(boid.vx, boid.vy);
+            if (speed > boid.maxSpeed) {
+
+                boid.vx = (boid.vx/speed)*boid.maxSpeed;
+                boid.vy = (boid.vy/speed)*boid.maxSpeed;
+
+            }
+
+            else if (speed < boid.minSpeed) {
+
+                boid.vx = (boid.vx/speed)*boid.minSpeed;
+                boid.vy = (boid.vy/speed)*boid.minSpeed;
+
+            }
+
+            boid.x = boid.x + (int) Math.round(boid.vx);
+            boid.y = boid.y + (int) Math.round(boid.vy);
+        }
+    }
+
+    // Update collosion for each boid
+    public void updateCollision(Entity boid) {
+        for (Obstacle obstacle: obstacleList) {
+            int xVec = boid.x - obstacle.xCenter;
+            int yVec = boid.y - obstacle.yCenter;
+            double dist = Math.hypot(xVec, yVec);
+            // System.out.println(xVec*boid.vx + yVec*boid.vy);
+            if (dist < obstacle.outerRadius && xVec*boid.vx + yVec*boid.vy < boid.magnetFactor) { // Is the boid inside the bounding radius and moving towards the obstacle?
+                // Get direction in which the boid is moving
+                double xRecip = yVec/dist;
+                double yRecip = -xVec/dist;
+                double inverseDist = (obstacle.outerRadius - dist)/(dist - obstacle.maxPointRadius);
+                if (xRecip*boid.vx + yRecip*boid.vy > 0) { // If dot product is positive, move boid in that direction.
+                    boid.vx = boid.vx + xRecip*inverseDist*boid.collisionFactor;
+                    boid.vy = boid.vy + yRecip*inverseDist*boid.collisionFactor;
+                } else {
+                    boid.vx = boid.vx - xRecip*inverseDist*boid.collisionFactor;
+                    boid.vy = boid.vy - yRecip*inverseDist*boid.collisionFactor;
+                }
+            }
+        }
+    }
+
+
+    // Update key strokes
+    public void updateKeys() {
+        dxCamera = 0;
+        dyCamera = 0;
+        if (keyH.leftPressed == true) {
+            dxCamera = cameraSpeed;
+        }
+        if (keyH.rightPressed == true) {
+            dxCamera = -cameraSpeed;
+        }
+        if (keyH.upPressed == true) {
+            dyCamera = cameraSpeed;
+        }
+        if (keyH.downPressed == true) {
+            dyCamera = -cameraSpeed;
+        }
+    }
+
+    // Draw the updated stuff onto screen. Use Java's Graphics class into this method
+    public void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+
+        // Change graphics class g to a 2D graphics class g2
+        Graphics2D g2 = (Graphics2D)g;
+        g2.setColor(Color.white);
+        
+        // Draw all entities
+        for(Entity entity: entityList) {
+            entity.x += dxCamera;
+            entity.y += dyCamera;
+            entity.draw(g2);
+        }
+        for(Obstacle obstacle: obstacleList) {
+            obstacle.moveObstacle(dxCamera, dyCamera);
+            obstacle.draw(g2);
+            // obstacle.drawBoundingLines(g2);
+        }
+        // Can run without dispose(), but add it to save memory
+        g2.dispose();
+    }
+}

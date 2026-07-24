@@ -1,8 +1,18 @@
 # Flow Plate
 
-[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Flow-Plate.exe)
+<p align="center">
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Flow-Plate.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+</p>
 
-*No Python needed — download and double-click. Prefer the code? [Grab the source folder](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Flow%20Plate).*
+<p align="center"><em>No Python needed — download and double-click. Prefer the code? <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Flow%20Plate">Grab the source folder</a>.</em></p>
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| `Esc` | Quit |
+
+Mostly a visual readout — there's no interaction beyond quitting.
 
 Computes and displays the velocity profile of laminar flow through a pipe, using
 tabulated material properties (air, ammonia, engine oil, water).
@@ -18,14 +28,6 @@ python Flow_Plate.py
 ```
 
 Opens fullscreen at 1920×1080.
-
-## Controls
-
-| Input | Action |
-|-------|--------|
-| `Esc` | Quit |
-
-Mostly a visual readout — there's no interaction beyond quitting.
 
 ## Files
 

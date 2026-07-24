@@ -1,8 +1,17 @@
 # Projectile Motion
 
-[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Projectile-Motion.exe)
+<p align="center">
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Projectile-Motion.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+</p>
 
-*No Python needed — download and double-click. Prefer the code? [Grab the source folder](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Projectile%20Motion).*
+<p align="center"><em>No Python needed — download and double-click. Prefer the code? <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Projectile%20Motion">Grab the source folder</a>.</em></p>
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| Drag the slider bar | Change the time |
+| `Esc` | Quit |
 
 Visualizes the trajectory of a projectile including air drag. Drag the slider to
 change the time and watch the projectile move along its path.
@@ -15,13 +24,6 @@ python demo_projectile.py
 ```
 
 Opens fullscreen at 1920×1080.
-
-## Controls
-
-| Input | Action |
-|-------|--------|
-| Drag the slider bar | Change the time |
-| `Esc` | Quit |
 
 ## Requirements
 

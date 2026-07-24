@@ -1,10 +1,22 @@
 # Boids (Flocking Simulation)
 
-[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-.exe-0078d4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Boids.exe)
-[![Download source](https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white)](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/BoidProject)
+<p align="center">
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Boids.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows-.exe-0078d4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+  &nbsp;
+  <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/BoidProject"><img src="https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white" height="50" alt="Download source (.zip)"></a>
+</p>
 
-The Windows package includes its own Java runtime, so users do not need to
-install Java.
+<p align="center"><em>The Windows package includes its own Java runtime, so users do not need to install Java.</em></p>
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| Left-click | Add a boid |
+| Right-click | Add an obstacle |
+| `W` / `A` / `S` / `D` | Move the view |
+| `Space` | Toggle the visible screen borders (on by default) |
+| Close the window | Quit |
 
 A [boids](https://en.wikipedia.org/wiki/Boids) flocking simulation written in
 **Java** with Swing. Agents follow the classic separation / alignment / cohesion
@@ -37,14 +49,6 @@ java -cp bin main.Main
 ```
 
 The window opens maximized. **Close the window to exit.**
-
-### Controls
-
-- **Left-click** to add a boid.
-- **Right-click** to add an obstacle.
-- Use **W/A/S/D** to move the view.
-- Press **Space** to enable or disable the visible screen borders. Borders are
-  enabled by default.
 
 ## Build the Windows application
 

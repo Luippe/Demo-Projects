@@ -1,8 +1,19 @@
 # Audio Processing
 
-[![Download source](https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white)](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Audio%20Processing)
+<p align="center">
+  <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Audio%20Processing"><img src="https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white" height="50" alt="Download source (.zip)"></a>
+</p>
 
-*Runs from source — there's no prebuilt `.exe` for this one (it needs a live microphone and heavy libraries). See setup below.*
+<p align="center"><em>Runs from source — there's no prebuilt <code>.exe</code> for this one (it needs a live microphone and heavy libraries). See setup below.</em></p>
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| Click the on-screen checkboxes | Toggle effects (echo / pitch / auto-tune) |
+| Arrow keys, `W` / `A` / `S` / `D` | Move / rotate the 3D visualization |
+| `H` | Toggle help / view |
+| `Esc` | Quit |
 
 Real-time audio effects driven by your microphone — echo, pitch shift, and
 auto-tune — with live FFT frequency visuals rendered in pygame. Toggle effects
@@ -30,15 +41,6 @@ python PythonAudioProcessingProject.py
 ```
 
 Opens a resizable 1920×1080 window.
-
-## Controls
-
-| Input | Action |
-|-------|--------|
-| Click the on-screen checkboxes | Toggle effects (echo / pitch / auto-tune) |
-| Arrow keys, `W` / `A` / `S` / `D` | Move / rotate the 3D visualization |
-| `H` | Toggle help / view |
-| `Esc` | Quit |
 
 ## Files & assets
 

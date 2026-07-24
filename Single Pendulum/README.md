@@ -1,8 +1,17 @@
 # Single Pendulum
 
-[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Single-Pendulum.exe)
+<p align="center">
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Single-Pendulum.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+</p>
 
-*No Python needed — download and double-click. Prefer the code? [Grab the source folder](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Single%20Pendulum).*
+<p align="center"><em>No Python needed — download and double-click. Prefer the code? <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Single%20Pendulum">Grab the source folder</a>.</em></p>
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| Drag the slider bar | Scrub through time |
+| `Esc` | Quit |
 
 Simulates a single pendulum's motion over time. Drag the slider to scrub through
 the trajectory and see the pendulum's position at any moment.
@@ -15,13 +24,6 @@ python demo_pendulum.py
 ```
 
 Opens fullscreen at 1920×1080.
-
-## Controls
-
-| Input | Action |
-|-------|--------|
-| Drag the slider bar | Scrub through time |
-| `Esc` | Quit |
 
 ## Requirements
 

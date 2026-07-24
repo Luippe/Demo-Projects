@@ -4,8 +4,9 @@ A collection of small, interactive simulations and visualizations. Most are
 written in **Python** with [pygame](https://www.pygame.org/); one (Boids) is
 written in **Java**.
 
-**Quickest way to try one:** download its **Windows `.exe`** from the gallery below
-and double-click — no Python, no setup. Every demo closes with **`Esc`**.
+**Quickest way to try one:** download its **Windows `.exe`** from the
+[latest release](https://github.com/Luippe/Demo-Projects/releases/latest) and
+double-click — no Python, no setup. Every demo closes with **`Esc`**.
 
 ---
 
@@ -13,8 +14,9 @@ and double-click — no Python, no setup. Every demo closes with **`Esc`**.
 
 ### 1. Download the Windows `.exe` — easiest, no install
 
-Click a demo's **Windows `.exe`** badge in the gallery below. It's a single
-self-contained `.exe` — double-click and it runs, nothing else to install.
+Grab a demo's self-contained **Windows `.exe`** from the repo's
+[latest GitHub Release](https://github.com/Luippe/Demo-Projects/releases/latest) —
+double-click and it runs, nothing else to install.
 
 > **First-launch warning is normal.** Because these `.exe`s aren't code-signed,
 > Windows SmartScreen may show a blue *"Windows protected your PC"* box the first
@@ -34,7 +36,7 @@ cd "Conway Game of Life"
 python -m venv .venv                 # optional but recommended
 .venv\Scripts\Activate.ps1           # Windows PowerShell  (macOS/Linux: source .venv/bin/activate)
 pip install -r requirements.txt
-python main.py                       # use the script name from the gallery
+python main.py                       # use the script name from the demo's own README
 ```
 
 > **Shortcut:** every Python demo *except Audio Processing* runs on the same four
@@ -44,8 +46,7 @@ python main.py                       # use the script name from the gallery
 
 ## The demos
 
-Click any preview to open that demo's folder. Each card links its **Windows `.exe`**
-(or **source `.zip`**) and shows the command to run it from source.
+Click any preview to open that demo's folder.
 
 <table>
 <tr>
@@ -58,8 +59,6 @@ Click any preview to open that demo's folder. Each card links its **Windows `.ex
 
 Boids / flocking simulation.
 
-[![source](https://img.shields.io/badge/source-.zip-6e7681?style=flat-square&logo=github&logoColor=white)](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/BoidProject) &nbsp; *see its README*
-
 </td>
 
 <td width="50%" valign="top">
@@ -69,8 +68,6 @@ Boids / flocking simulation.
 <a href="./Audio%20Processing"><img src="Audio%20Processing/audio_process.gif" width="100%" alt="Audio processing with real-time FFT visuals"></a>
 
 Live mic effects + real-time FFT visuals.
-
-[![source](https://img.shields.io/badge/source-.zip-6e7681?style=flat-square&logo=github&logoColor=white)](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Audio%20Processing) &nbsp; `python PythonAudioProcessingProject.py`
 
 </td>
 
@@ -85,8 +82,6 @@ Live mic effects + real-time FFT visuals.
 
 Grid path-search visualization.
 
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Pathfinding-Visualization.exe) &nbsp; `python path_finding.py`
-
 </td>
 
 <td width="50%" valign="top">
@@ -96,8 +91,6 @@ Grid path-search visualization.
 <a href="./Conway%20Game%20of%20Life"><img src="Conway%20Game%20of%20Life/conway.gif" width="100%" alt="Conway's Game of Life"></a>
 
 Classic cellular-automaton life simulation.
-
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Conway-Game-of-Life.exe) &nbsp; `python main.py`
 
 </td>
 
@@ -112,8 +105,6 @@ Classic cellular-automaton life simulation.
 
 FFT-based image compression / low-pass filter.
 
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Image-Compression.exe) &nbsp; `python Image_compress_filter.py`
-
 </td>
 
 <td width="50%" valign="top">
@@ -123,8 +114,6 @@ FFT-based image compression / low-pass filter.
 <a href="./Fluid%20Flow"><img src="Fluid%20Flow/fluid_flow.gif" width="100%" alt="Real-time 2D fluid solver"></a>
 
 Real-time 2D fluid solver.
-
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Fluid-Flow.exe) &nbsp; `python Fluid_Flow.py`
 
 </td>
 
@@ -139,8 +128,6 @@ Real-time 2D fluid solver.
 
 Launch/aim a projectile with the mouse.
 
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Projectile-Method.exe) &nbsp; `python projectile_method.py`
-
 </td>
 
 <td width="50%" valign="top">
@@ -150,8 +137,6 @@ Launch/aim a projectile with the mouse.
 <a href="./Projectile%20Motion"><img src="Projectile%20Motion/projectile_motion.gif" width="100%" alt="Projectile trajectory with drag"></a>
 
 Projectile trajectory with drag.
-
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Projectile-Motion.exe) &nbsp; `python demo_projectile.py`
 
 </td>
 
@@ -166,8 +151,6 @@ Projectile trajectory with drag.
 
 Chaotic double-pendulum motion.
 
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Double-Pendulum.exe) &nbsp; `python double_pendulum.py`
-
 </td>
 
 <td width="50%" valign="top">
@@ -177,8 +160,6 @@ Chaotic double-pendulum motion.
 <a href="./Single%20Pendulum"><img src="Single%20Pendulum/single_pendulum.gif" width="100%" alt="Damped single-pendulum motion"></a>
 
 Damped single-pendulum motion over time.
-
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Single-Pendulum.exe) &nbsp; `python demo_pendulum.py`
 
 </td>
 
@@ -193,8 +174,6 @@ Damped single-pendulum motion over time.
 
 Spring–mass–damper response.
 
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Spring-Mass-Damper.exe) &nbsp; `python smd.py`
-
 </td>
 
 <td width="50%" valign="top">
@@ -205,8 +184,6 @@ Spring–mass–damper response.
 
 Laminar pipe-flow velocity profile.
 
-[![.exe](https://img.shields.io/badge/Windows-.exe-2ea44f?style=flat-square&logo=windows&logoColor=white)](https://github.com/Luippe/Demo-Projects/releases/latest/download/Flow-Plate.exe) &nbsp; `python Flow_Plate.py`
-
 </td>
 
 </tr>
@@ -215,9 +192,7 @@ Laminar pipe-flow velocity profile.
 Most demos open **fullscreen at 1920×1080** — press **`Esc`** to exit. Each demo's
 own README lists its controls.
 
-> The **`.exe`** links pull from this repo's latest [GitHub Release](https://github.com/Luippe/Demo-Projects/releases/latest).
-> The **source** links use [download-directory.github.io](https://download-directory.github.io/),
-> a free service that zips a single GitHub folder.
+> The **`.exe`** downloads come from this repo's latest [GitHub Release](https://github.com/Luippe/Demo-Projects/releases/latest).
 
 ---
 
@@ -245,4 +220,4 @@ python build_installers.py            # builds every demo into ./dist/
 
 The resulting `.exe` files (in `./dist/`) are published as assets on a
 [GitHub Release](https://github.com/Luippe/Demo-Projects/releases) — that's what the
-download buttons point at. See [`BUILD.md`](./BUILD.md) for the full build-and-release steps.
+download links point at. See [`BUILD.md`](./BUILD.md) for the full build-and-release steps.

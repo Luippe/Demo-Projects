@@ -17,6 +17,10 @@ Audio Processing/temp_audio.wav
 
 # Java compiled output (BoidProject) - recompile from src/ with javac
 BoidProject/bin/
+*.class
+*.jar
+hs_err_pid*.log
+replay_pid*.log
 
 # OS junk
 .DS_Store

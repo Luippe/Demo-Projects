@@ -1,10 +1,11 @@
 # Conway's Game of Life
 
 <p align="center">
-  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Conway-Game-of-Life.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows%20(.exe)-2ea44f?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Conway-Game-of-Life.exe"><img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-.EXE-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="68" alt="Download Conway's Game of Life for Windows (.exe)"></a>
 </p>
 
-<p align="center"><em>No Python needed — download and double-click. Prefer the code? <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Conway%20Game%20of%20Life">Grab the source folder</a>.</em></p>
+<p align="center"><strong>Download, double-click, and start exploring — no Python needed.</strong><br>
+<em>Prefer the code? <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Conway%20Game%20of%20Life">Download the source folder</a>.</em></p>
 
 ## Controls
 

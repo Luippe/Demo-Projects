@@ -232,24 +232,6 @@ class Pages():
                             self.check_rect[i][1] = 1
                         elif self.check_rect[i][1] == 1:
                             self.check_rect[i][1] = 0
-            # sends image to spectrogram and plays it. does not work.
-            # if self.full_spectrogram == True and self.page == 1:
-            #     draw_text("Send Image", self.font, BLACK, (1835 - self.page_x, 500))
-            #     pygame.draw.rect(screen, RED, self.image_spec,width=3)
-            #     if mouse_rect.colliderect(self.image_spec) and pygame.mouse.get_pressed()[0] == 1 and self.click_allow == True:
-            #         self.click_allow = False
-            #         self.send_image = True
-            #         self.img = pygame.image.load('test_audio.jpg').convert_alpha()
-            #         self.img_grayscale = pygame.transform.grayscale(self.img)
-            #         self.px_grayscale = pygame.surfarray.array3d(self.img_grayscale)
-            #         self.img_grayscale = self.px_grayscale[:,:,1].transpose()
-            #         # self.img_fft = fft2(self.img_grayscale)*2/CHUNK
-            #         # self.img_fft = fftshift(self.img_fft)
-            #         # plt.imshow(self.mag_spec,cmap='gray')
-            #         # plt.show()
-            #         # self.y_fft_abs = abs(self.img_fft/20)
-            #         self.y_fft_abs = self.img_grayscale
-
                 
         key = pygame.key.get_pressed()
         if key[pygame.K_LEFT]:

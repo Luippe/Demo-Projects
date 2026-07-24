@@ -1,5 +1,9 @@
 # Boids (Flocking Simulation)
 
+[![Download source](https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white)](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/BoidProject)
+
+*Runs from source — there's no `.exe` for this one (it's a Java project). See the build steps below.*
+
 A [boids](https://en.wikipedia.org/wiki/Boids) flocking simulation written in
 **Java** with Swing. Agents follow the classic separation / alignment / cohesion
 rules to produce emergent flocking behaviour, with obstacles and a Voronoi

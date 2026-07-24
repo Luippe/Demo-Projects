@@ -1,6 +1,13 @@
 import pygame
 from pygame.locals import *
 import numpy as np
+import os, sys
+
+def resource_path(rel):
+    """Locate an asset whether run from source or a bundled PyInstaller .exe."""
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, rel)
+
 flags = FULLSCREEN | DOUBLEBUF
 
 pygame.init()
@@ -18,10 +25,10 @@ stop = True
 # Fixed 1920x1080 logical resolution; SCALED scales it to any monitor and remaps mouse input.
 screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN | pygame.SCALED)
 screen_width, screen_height = pygame.display.get_surface().get_size()
-spring = pygame.image.load('spring.png').convert_alpha()
-base_spring = pygame.image.load('spring.png').convert_alpha()
-damp1 = pygame.image.load('damp1.png').convert_alpha()
-damp2 = pygame.image.load('damp2.png').convert_alpha()
+spring = pygame.image.load(resource_path('spring.png')).convert_alpha()
+base_spring = pygame.image.load(resource_path('spring.png')).convert_alpha()
+damp1 = pygame.image.load(resource_path('damp1.png')).convert_alpha()
+damp2 = pygame.image.load(resource_path('damp2.png')).convert_alpha()
 damp1 = pygame.transform.scale(damp1, (700,100))
 damp2 = pygame.transform.scale(damp2, (700,100))
 

@@ -1,5 +1,9 @@
 # Audio Processing
 
+[![Download source](https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white)](https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Audio%20Processing)
+
+*Runs from source — there's no prebuilt `.exe` for this one (it needs a live microphone and heavy libraries). See setup below.*
+
 Real-time audio effects driven by your microphone — echo, pitch shift, and
 auto-tune — with live FFT frequency visuals rendered in pygame. Toggle effects
 with on-screen checkboxes and steer the 3D visualization with the keyboard.
@@ -42,17 +46,6 @@ Opens a resizable 1920×1080 window.
 - `checkmark0.png`, `checkmark1.png`, `editundo.ttf` — UI assets, loaded from this folder.
 - `wav_test2.wav`, `wobble.wav` — sample audio used by the effects.
 - `temp_audio.wav` is **written at runtime** and is git-ignored.
-
-## Known compatibility note
-
-The code calls `matplotlib.cm.get_cmap('turbo')`, which was **removed in
-matplotlib 3.9**. On a current matplotlib this line raises an
-`AttributeError`. Until the source is updated (to `matplotlib.colormaps['turbo']`),
-pin an older matplotlib in this venv:
-
-```bash
-pip install "matplotlib<3.9"
-```
 
 ## Requirements
 

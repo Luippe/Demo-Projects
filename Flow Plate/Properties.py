@@ -1,7 +1,13 @@
 import numpy as np
 import csv
+import os, sys
 
-property_obj = open('Material Properties.txt', 'r')
+def resource_path(rel):
+    """Locate an asset whether run from source or a bundled PyInstaller .exe."""
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, rel)
+
+property_obj = open(resource_path('Material Properties.txt'), 'r')
 read_data = csv.reader(property_obj, delimiter = ' ', quoting = csv.QUOTE_NONNUMERIC)
 air_properties = []
 ammonia_properties = []
@@ -19,7 +25,7 @@ ammonia_array = np.array(ammonia_properties)
 engine_oil_array = np.array(engine_oil_properties)
 property_obj.close()
 
-water_obj = open('Water Properties.txt', 'r')
+water_obj = open(resource_path('Water Properties.txt'), 'r')
 water_data = csv.reader(water_obj, delimiter = ' ', quoting = csv.QUOTE_NONNUMERIC)
 water_properties = []
 for num, row in enumerate(water_data):

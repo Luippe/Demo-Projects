@@ -4,6 +4,13 @@ from os import path
 from pygame.locals import *
 from math import ceil, floor
 from xml.dom.pulldom import parseString
+import os, sys
+
+def resource_path(rel):
+    """Locate an asset whether run from source or a bundled PyInstaller .exe."""
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, rel)
+
 flags = FULLSCREEN | DOUBLEBUF
 
 pygame.init()
@@ -47,7 +54,7 @@ counter = 0
 steps = 0
 sorted_index = 0
 
-font = pygame.font.Font('editundo.ttf', 30)
+font = pygame.font.Font(resource_path('editundo.ttf'), 30)
 def draw_text(text, font, text_col, x, y,screen_surf):
     img = font.render(text, True, text_col)
     screen_surf.blit(img, (x, y))
@@ -156,7 +163,8 @@ while run:
                     draw_path(goal_pos, LIGHT_BLUE)
             for loc in next_path:
                 place = next_path.index(loc)
-                draw_text(f'{round(test_queue[place][0],1)}',font,ORANGE,edge_x + tile_size*loc[0],edge_y + tile_size*loc[1] + (tile_size//2),text_surface)
+                # uncomment if you want to see the queue values
+                # draw_text(f'{round(test_queue[place][0],1)}',font,ORANGE,edge_x + tile_size*loc[0],edge_y + tile_size*loc[1] + (tile_size//2),text_surface)
 
     pos = pygame.mouse.get_pos()
     x = (pos[0] - edge_x)//tile_size

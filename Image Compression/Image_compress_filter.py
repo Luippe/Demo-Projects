@@ -11,13 +11,19 @@ import matplotlib.pyplot as plt
 from scipy.fft import fft2, ifft2, fftshift, ifftshift
 import pygame
 from pygame.locals import *
+import os, sys
+
+def resource_path(rel):
+    """Locate an asset whether run from source or a bundled PyInstaller .exe."""
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, rel)
 
 pygame.init()
 clock = pygame.time.Clock()
 fps = 60
 screen = pygame.display.set_mode((800,800))
 screen_width, screen_height = pygame.display.get_surface().get_size()
-img = plt.imread('pupp_gray.jpg').astype(float)
+img = plt.imread(resource_path('pupp_gray.jpg')).astype(float)
 
 pixel_size = 2
 remove_row_col = 1

@@ -1,12 +1,12 @@
 # Boids (Flocking Simulation)
 
 <p align="center">
-  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Boids.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows-.exe-0078d4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Boids-Windows.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-.zip-0078d4?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.zip)"></a>
   &nbsp;
   <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/BoidProject"><img src="https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white" height="50" alt="Download source (.zip)"></a>
 </p>
 
-<p align="center"><em>The Windows package includes its own Java runtime, so users do not need to install Java.</em></p>
+<p align="center"><em>Portable <code>.zip</code> with its own Java runtime bundled — no Java install needed. Unzip it, then run <code>Boids.exe</code> from inside the <code>Boids</code> folder.</em></p>
 
 ## Controls
 

@@ -82,6 +82,16 @@ def draw_objects(A):
             elif A[i][j] == 2:
                  pygame.draw.rect(bg_surface, LIGHT_BLUE, (tile_size*i+edge_x, tile_size*j+edge_y, tile_size, tile_size))
                  
+def in_grid(x, y):
+    """True when a tile coordinate is actually on the board.
+
+    Guards every A[x][y] lookup driven by the mouse. Clicking right of the grid
+    gives x >= x_size (IndexError), and clicking left of or above it gives a
+    negative x/y -- which numpy happily accepts as an index from the far end,
+    silently editing a tile on the opposite edge.
+    """
+    return 0 <= x < x_size and 0 <= y < y_size
+
 def draw_legend():
     pygame.draw.rect(screen, LIGHT_BLUE, (850, 50, tile_size,tile_size))
     draw_text("Shortest Path", font, WHITE, 900, 50,screen)
@@ -107,6 +117,10 @@ while run:
         for i in [-1, 0, 1]:
             for j in [-1, 0, 1]:
                 next_pos = [x_curr+i, y_curr+j]
+                # Normally the all-wall border keeps the search inside A, but a
+                # start tile placed ON the border scans past the edge.
+                if in_grid(next_pos[0], next_pos[1]) == False:
+                    continue
                 if (next_pos in path_pos) == False and (A[x_curr+i][y_curr+j] != 1):
                     goal_dist = np.linalg.norm([a_i - b_i for a_i, b_i in zip(next_pos, goal_pos)])
                     start_dist = np.linalg.norm([a_i - b_i for a_i, b_i in zip(next_pos, current_pos)]) + curr_start_val
@@ -169,10 +183,12 @@ while run:
     pos = pygame.mouse.get_pos()
     x = (pos[0] - edge_x)//tile_size
     y = (pos[1] - edge_y)//tile_size
-    if pygame.mouse.get_pressed()[0] == 1 and A[x][y] != 1:
+    # Checked before every A[x][y] below -- the cursor is free to leave the grid.
+    on_grid = in_grid(x, y)
+    if on_grid and pygame.mouse.get_pressed()[0] == 1 and A[x][y] != 1:
          A[x][y] = 1
          draw_objects(A)
-    elif pygame.mouse.get_pressed()[2] == 1 and A[x][y] != 0:
+    elif on_grid and pygame.mouse.get_pressed()[2] == 1 and A[x][y] != 0:
          A[x][y] = 0
          pygame.draw.rect(bg_surface, WHITE, (tile_size*x+edge_x, tile_size*y+edge_y, tile_size, tile_size))
          draw_grid()
@@ -182,12 +198,12 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 run = False
-            elif event.key == pygame.K_g and A[x][y] != 2:
+            elif event.key == pygame.K_g and on_grid and A[x][y] != 2:
                  A[goal_pos[0]][goal_pos[1]] = 0
                  A[x][y] = 2
                  goal_pos = [x,y]
                  draw_objects(A)
-            elif event.key == pygame.K_s and A[x][y] != 3:
+            elif event.key == pygame.K_s and on_grid and A[x][y] != 3:
                  A[start_pos[0]][start_pos[1]] = 0
                  start_pos = [x,y]
                  current_pos = [x,y]

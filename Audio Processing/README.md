@@ -1,10 +1,12 @@
 # Audio Processing
 
 <p align="center">
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Audio-Processing.exe"><img src="https://img.shields.io/badge/Download%20for%20Windows-.exe-2ea44f?style=for-the-badge&logo=windows&logoColor=white" height="50" alt="Download for Windows (.exe)"></a>
+  &nbsp;
   <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Audio%20Processing"><img src="https://img.shields.io/badge/Download%20source-.zip-6e7681?style=for-the-badge&logo=github&logoColor=white" height="50" alt="Download source (.zip)"></a>
 </p>
 
-<p align="center"><em>Runs from source — there's no prebuilt <code>.exe</code> for this one (it needs a live microphone and heavy libraries). See setup below.</em></p>
+<p align="center"><em>Needs a <strong>working microphone and speakers</strong>. The <code>.exe</code> bundles everything — no Python needed. Prefer the code? Grab the source and follow the setup below.</em></p>
 
 ## Controls
 

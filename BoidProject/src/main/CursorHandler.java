@@ -5,8 +5,8 @@ import java.awt.event.MouseListener;
 
 public class CursorHandler implements MouseListener{
 
-    public boolean isRightClicked, isLeftClicked;
-    public int cursorX, cursorY;
+    public volatile boolean isRightClicked, isLeftClicked;
+    public volatile int cursorX, cursorY;
 
     
     @Override

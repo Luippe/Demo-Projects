@@ -7,11 +7,25 @@ and publish them so the buttons work.
 ## What gets built
 
 [`build_installers.py`](./build_installers.py) uses **PyInstaller** to package 10
-of the pygame demos into standalone, single-file `.exe`s. Two demos are excluded:
+of the pygame demos into standalone, single-file `.exe`s. The Java demo has its
+own build script. One demo is excluded:
 
 - **Audio Processing** — needs a live microphone and fussy `pyaudio`/`opencv`
   bundling; shipped as source.
-- **BoidProject** — it's Java; use `jpackage` if you ever want an installer for it.
+
+**BoidProject** uses Java's `jpackage`. Build its portable Windows application
+with:
+
+```powershell
+cd BoidProject
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Build-Boids.ps1
+```
+
+After installing WiX, create `dist\Boids.exe` with:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Build-Boids.ps1 -Type Installer
+```
 
 Each `.exe` is named to match its download button, e.g. `Conway-Game-of-Life.exe`.
 

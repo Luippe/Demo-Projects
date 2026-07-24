@@ -16,6 +16,15 @@ from scipy.spatial.transform import Rotation as R
 from pprint import pprint
 import time
 import cv2
+
+# When bundled by PyInstaller (--onefile), data files (fonts, PNGs, WAVs) are
+# unpacked to a temp dir exposed as sys._MEIPASS, but the process working
+# directory is NOT that dir. Switch to it when frozen so the bare-relative asset
+# loads below resolve. No effect when running from source (sys.frozen is unset).
+if getattr(sys, 'frozen', False):
+    import os
+    os.chdir(sys._MEIPASS)
+
 flags = FULLSCREEN | DOUBLEBUF
 pygame.init()
 clock = pygame.time.Clock()

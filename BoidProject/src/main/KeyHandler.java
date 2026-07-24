@@ -2,10 +2,13 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class KeyHandler implements KeyListener{
+public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public volatile boolean upPressed, downPressed, leftPressed, rightPressed;
+    public volatile boolean spacePressed;
+    private final AtomicBoolean borderToggleRequested = new AtomicBoolean();
     
     @Override
     public void keyTyped(KeyEvent e) {
@@ -29,6 +32,10 @@ public class KeyHandler implements KeyListener{
         if(code == KeyEvent.VK_D) {
             rightPressed = true;
         }
+        if(code == KeyEvent.VK_SPACE && !spacePressed) {
+            spacePressed = true;
+            borderToggleRequested.set(true);
+        }
     }
 
     @Override
@@ -48,7 +55,14 @@ public class KeyHandler implements KeyListener{
         if(code == KeyEvent.VK_D) {
             rightPressed = false;
         }
+        if(code == KeyEvent.VK_SPACE) {
+            spacePressed = false;
+        }
 
+    }
+
+    public boolean consumeBorderToggleRequest() {
+        return borderToggleRequested.getAndSet(false);
     }
 
 }

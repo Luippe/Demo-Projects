@@ -1,0 +1,27 @@
+# Projectile Motion
+
+<p align="center">
+  <a href="https://github.com/Luippe/Demo-Projects/releases/latest/download/Projectile-Motion.exe"><img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-.EXE-0078D4?style=for-the-badge&logo=windows&logoColor=white" height="68" alt="Download Projectile Motion for Windows (.exe)"></a>
+</p>
+
+<p align="center">
+<em>Prefer the code? <a href="https://download-directory.github.io/?url=https://github.com/Luippe/Demo-Projects/tree/main/Projectile%20Motion">Download the source folder</a>.</em></p>
+
+Visualizes the trajectory of a projectile with air drag included. Drag the slider
+to change the time and watch the projectile move along its path.
+
+## Controls
+
+| Input | Action |
+|-------|--------|
+| Drag the slider bar | Change the time |
+| `Esc` | Quit |
+
+## Run from source
+
+```bash
+pip install -r requirements.txt
+python demo_projectile.py
+```
+
+Opens fullscreen at 1920×1080.

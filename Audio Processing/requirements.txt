@@ -1,0 +1,7 @@
+pygame
+numpy
+scipy
+matplotlib
+pyaudio; platform_system != "Windows"
+PyAudioWPatch; platform_system == "Windows"
+opencv-python

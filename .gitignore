@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Generated at runtime by the Audio Processing demo
+Audio Processing/temp_audio.wav
+
+# Java compiled output (BoidProject) - recompile from src/ with javac
+BoidProject/bin/
+*.class
+*.jar
+hs_err_pid*.log
+replay_pid*.log
+
+# Source media for the README gifs - kept locally, not published
+*.pptx
+*.mp4
+
+# Office lock files (embed the editor's name)
+~$*
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
